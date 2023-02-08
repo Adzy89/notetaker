@@ -45,7 +45,7 @@ const {
   note.post('/', (req, res) => {
     console.log(req.body);
   
-    const {  title, task, note } = req.body;
+    const { title, task, note } = req.body;
   
     if (req.body) {
       const newNote = {
