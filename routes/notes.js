@@ -1,4 +1,4 @@
-const note = require('express').Router();
+const notes = require('express').Router();
 const { v4: uuid} = require('uuid');
 const {
     readFromFile,
@@ -6,12 +6,12 @@ const {
     writeToFile,
   } = require('../helpers/fsutils');
 
-  note.get('/', (req, res) => {
+  notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
   
   // GET Route for a specific note
-  note.get('/:note_id', (req, res) => {
+  notes.get('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
@@ -24,7 +24,7 @@ const {
   });
   
   // DELETE Route for a specific note
-  note.delete('/:note_id', (req, res) => {
+  notes.delete('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
@@ -42,7 +42,7 @@ const {
   });
   
   // POST Route for a new UX/UI note
-  note.post('/', (req, res) => {
+  notes.post('/', (req, res) => {
     console.log(req.body);
   
     const { title, task, note } = req.body;
