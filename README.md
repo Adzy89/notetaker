@@ -15,8 +15,8 @@ No steps requried simply click on the link
 
 ## Screenshot
    
-![Demo](./assets/notetaker/notetaker/Assets/11-express-homework-demo-01.png)
-![Demo](./assets/11-express-homework-demo-02.pngnotetaker/notetaker/Assets/11-express-homework-demo-02.png)
+![demo](../notetaker/assets/11-express-homework-demo-01.png)
+![demo](../notetaker/assets/11-express-homework-demo-02.png)
 
 ## License
 
