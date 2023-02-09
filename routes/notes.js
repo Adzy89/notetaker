@@ -1,22 +1,22 @@
 const notes = require('express').Router();
-const { v4: uuid} = require('uuid');
+const { v4: uuidv4} = require('uuid');
 const {
     readFromFile,
     readAndAppend,
     writeToFile,
-  } = require('../helpers/fsutils');
+  } = require('../helpers/fsUtils');
 
   notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
   
   // GET Route for a specific note
-  notes.get('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+  notes.get('/', (req, res) => {
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((note) => note.note_id === noteId);
+        const result = json.filter((id) => id === noteId);
         return result.length > 0
           ? res.json(result)
           : res.json('No Note with that ID');
@@ -24,13 +24,13 @@ const {
   });
   
   // DELETE Route for a specific note
-  notes.delete('/:note_id', (req, res) => {
-    const noteId = req.params.note_id;
+  notes.delete('/:id', (req, res) => {
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
         // Make a new array of all note except the one with the ID provided in the URL
-        const result = json.filter((note) => note.note_id !== noteId);
+        const result = json.filter((id) => id !== noteId);
 
         console.log(result)
         // Save that array to the filesystem
@@ -45,14 +45,13 @@ const {
   notes.post('/', (req, res) => {
     console.log(req.body);
   
-    const { title, task, note } = req.body;
+    const { title, text, } = req.body;
   
     if (req.body) {
       const newNote = {
         title,
-        task,
-        note,
-        note_id: uuid(),
+        text,
+        id: uuidv4(),
       };
   
       readAndAppend(newNote, './db/db.json');
@@ -62,4 +61,4 @@ const {
     }
   });
   
-  module.exports = note;
+  module.exports = notes;
