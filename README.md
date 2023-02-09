@@ -9,22 +9,18 @@ Provide a short description explaining the what, why, and how of your project. U
 - What problem does it solve?
 - What did you learn?
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Screenshot](#screenshot)
-- [License](#license)
-
 ## Installation
 
 No steps requried simply click on the link
 
 ## Screenshot
    
-![Demo](/notetaker/notetaker/Assets/11-express-homework-demo-01.png)
-![Demo](/notetaker/notetaker/Assets/11-express-homework-demo-02.png)
+![Demo](./assets/notetaker/notetaker/Assets/11-express-homework-demo-01.png)
+![Demo](./assets/11-express-homework-demo-02.pngnotetaker/notetaker/Assets/11-express-homework-demo-02.png)
 
 ## License
 
 MIT
+
+## live pages
+
